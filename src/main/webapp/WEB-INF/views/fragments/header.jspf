@@ -1,0 +1,11 @@
+<nav class="navbar navbar-light header-bar sticky-top">
+
+    <a href="/"><img src="/resources/images/logo.png" class="rounded float-left" alt="logo" height="100px"></a>
+    <div class="btn-group btn-group-lg" role="group" aria-label="menu_buttons">
+        <button type="button" class="btn btn-warning header-btn openbtn" onclick="openNav()">☰ Pełna lista</button>
+        <button type="button" class="btn btn-warning header-btn">Logowanie</button>
+        <button type="button" class="btn btn-warning header-btn">Rejestracja</button>
+        <button type="button" class="btn btn-warning header-btn">O nas</button>
+    </div>
+
+</nav>
