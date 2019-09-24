@@ -10,48 +10,10 @@
 
 </head>
 <body>
-<nav class="navbar navbar-light header-bar sticky-top">
-
-    <a href="/"><img src="/resources/images/logo.png" class="rounded float-left" alt="logo" height="100px"></a>
-    <div class="btn-group btn-group-lg" role="group" aria-label="menu_buttons">
-        <button type="button" class="btn btn-warning header-btn openbtn" onclick="openNav()">☰ Katalog</button>
-        <button type="button" class="btn btn-warning header-btn">Logowanie</button>
-        <button type="button" class="btn btn-warning header-btn">Rejestracja</button>
-        <button type="button" class="btn btn-warning header-btn">O nas</button>
-    </div>
-
-</nav>
-<div/>
+<%@ include file="fragments/header.jspf" %>
 
 
-
-<div id="mySidebar" class="sidebar">
-    <br><br><br><br>
-    <h4>Ciemne</h4>
-    <a href="#">Bock</a>
-    <a href="#">Porter</a>
-    <a href="#">Stout</a>
-    <a href="#">Inne</a>
-    <h4>Jasne</h4>
-    <a href="#">Ale</a>
-    <a href="#">Lager</a>
-    <a href="#">Pils</a>
-    <a href="#">Inne zboża</a>
-    <a href="#">Inne smaki</a>
-</div>
-
-<script>
-    function openNav() {
-        document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-    }
-
-    function closeNav() {
-        document.getElementById("mySidebar").style.width = "0";
-        document.getElementById("main").style.marginLeft= "0";
-    }
-</script>
-
+<div></div>
 <div class="container">
     <div class="card">
         <div class="card-body">
@@ -78,5 +40,26 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+    <div class="card">
+        <div class="row">
+            <div class="col">
+                1 of 3
+            </div>
+            <div class="col">
+                2 of 3
+            </div>
+            <div class="col">
+                3 of 3
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%@include file="fragments/footer.jspf" %>
+
 </body>
 </html>

@@ -11,27 +11,29 @@
 </head>
 <body>
 
+<%@ include file="fragments/header.jspf"%>
+
 
 <form:form method="post" modelAttribute="user">
 
     <div>
         <label>Login:
-            <form:input path="login"/>
+            <form:input path="username"/>
         </label>
-        <form:errors path="login" element="div"/>
+        <form:errors path="username" element="div"/>
     </div>
     <div>
         <label>Imię:
-            <form:input path="firstName"/>
+            <form:input path="first_name"/>
         </label>
-        <form:errors path="firstName" element="div"/>
+        <form:errors path="first_name" element="div"/>
     </div>
 
     <div>
         <label>Nazwisko:
-            <form:input path="lastName"/>
+            <form:input path="last_name"/>
         </label>
-        <form:errors path="lastName" element="div"/>
+        <form:errors path="last_name" element="div"/>
     </div>
 
     <div>
@@ -43,13 +45,13 @@
 
     <div>
         <label>Hasło:
-            <form:input path="password"/>
+            <form:password path="password"/>
         </label>
         <form:errors path="password" element="div"/>
     </div>
 
-    <input type="submit" value="Save">
+    <input type="submit" value="Stwórz konto">
 </form:form>
-
+<%@include file="fragments/footer.jspf"%>
 </body>
 </html>

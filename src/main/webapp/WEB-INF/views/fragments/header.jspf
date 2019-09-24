@@ -1,11 +1,43 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <nav class="navbar navbar-light header-bar sticky-top">
 
     <a href="/"><img src="/resources/images/logo.png" class="rounded float-left" alt="logo" height="100px"></a>
     <div class="btn-group btn-group-lg" role="group" aria-label="menu_buttons">
-        <button type="button" class="btn btn-warning header-btn openbtn" onclick="openNav()">☰ Pełna lista</button>
-        <button type="button" class="btn btn-warning header-btn">Logowanie</button>
-        <button type="button" class="btn btn-warning header-btn">Rejestracja</button>
-        <button type="button" class="btn btn-warning header-btn">O nas</button>
+        <button type="button" class="btn btn-warning header-btn openbtn" onclick="openNav()">☰ Katalog</button>
+        <a href="/login" class="header-btn btn-group btn-group-lg">
+            <button type="button" class="btn btn-warning header-btn">Logowanie</button>
+        </a>
+        <a href="/register" class="header-btn btn-group btn-group-lg">
+            <button type="button" class="btn btn-warning header-btn">Rejestracja</button>
+        </a>
+        <a href="/" class="header-btn btn-group btn-group-lg">
+            <button type="button" class="btn btn-warning header-btn">O nas</button>
+        </a>
     </div>
+
+</nav>
+
+<nav id="mySidebar" class="sidebar" style="top:60px">
+    <div class="sidebar-header"><h3>Rodzaje piwa</h3></div>
+    <ul class="list-unstyled components">
+        <li>
+            <ul class="list-unstyled components">
+                <h5>Ciemne</h5>
+                <li><a href="/bock">Bock</a></li>
+                <li><a href="/porter">Porter</a></li>
+                <li><a href="/stout">Stout</a></li>
+                <li><a href="/dark_other">Inne</a></li>
+            </ul>
+            <ul class="list-unstyled components">
+                <h5>Jasne</h5>
+                <li><a href="/ale">Ale</a></li>
+                <li><a href="/lager">Lager</a></li>
+                <li><a href="/pils">Pils</a></li>
+                <li><a href="light_grains">Inne zboża</a></li>
+                <li><a href="light_taste">Inne smaki</a></li>
+            </ul>
+        </li>
+    </ul>
 
 </nav>

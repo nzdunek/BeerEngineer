@@ -11,12 +11,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class SpringDataUserDetailsService implements UserDetailsService {
+    @Autowired
     private UserService userService;
 
-    @Autowired
-    public SpringDataUserDetailsService(UserService userService) {
-        this.userService = userService;
-    }
 
     @Override
     public UserDetails loadUserByUsername(String username) {

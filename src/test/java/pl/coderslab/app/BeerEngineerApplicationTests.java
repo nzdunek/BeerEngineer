@@ -1,4 +1,4 @@
-package pl.coderslab.beerengineer;
+package pl.coderslab.app;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

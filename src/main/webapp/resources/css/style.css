@@ -1,5 +1,7 @@
 body {
-    background-color: #ffffd1;
+    background-color: ghostwhite;
+    font-family: Helvetica;
+    color: #250a08;
 }
 
 .header-bar {
@@ -11,7 +13,11 @@ body {
 }
 
 .header-btn {
+    float: right;
     background-color: #FFBF00;
+    font-family: Helvetica;
+    font-size: 25px;
+    color: #250a08;
 }
 
 .sidebar {
@@ -25,16 +31,21 @@ body {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    }
+
+h5 {
+    margin-left: 23px;
 }
 
 .sidebar a {
     padding: 8px 8px 8px 32px;
     display: block;
     transition: 0.3s;
+    color: #250a08;
 }
 
 .sidebar a:hover {
-    color: #f1f1f1;
+    color: saddlebrown;
 }
 
 .sidebar .closebtn {

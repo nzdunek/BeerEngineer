@@ -22,30 +22,32 @@ public class User {
     @Email
     private String email;
 
-    @NotBlank
     @Column(unique = true)
     @Size(min=5, max=20)
     private String username;
 
     @NotBlank
     @Size(min=3, max=20)
-    private String firstName;
+    private String first_name;
 
     @NotBlank
     @Size(min=3, max=40)
-    private String lastName;
+    private String last_name;
 
-    @NotBlank
-    @Size(min=5, max=10)
+    @Size(min=5)
     private String password;
 
-    private int enabled;
+    private int enabled=1;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Role> roles;
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -64,20 +66,20 @@ public class User {
         this.username = username;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
     public String getPassword() {
@@ -104,16 +106,19 @@ public class User {
         this.roles = roles;
     }
 
-    public User(@NotBlank @Email String email, @NotBlank @Size(min = 3, max = 20) String firstName,
-                @NotBlank @Size(min = 3, max = 40) String lastName,
-                @NotBlank @Size(min = 5, max = 10) String password) {
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
+    public User() {
     }
 
-    public User() {
+    public User(@NotBlank @Email String email, @Size(min = 5, max = 20) String username,
+                @Size(min = 3, max = 20) String first_name, @Size(min = 3, max = 40) String last_name,
+                @Size(min = 5, max = 10) String password, int enabled, Set<Role> roles) {
+        this.email = email;
+        this.username = username;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.password = password;
+        this.enabled = enabled;
+        this.roles = roles;
     }
 
     @Override
@@ -121,9 +126,12 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", username='" + username + '\'' +
+                ", first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
                 ", password='" + password + '\'' +
+                ", enabled=" + enabled +
+                ", roles=" + roles +
                 '}';
     }
 }

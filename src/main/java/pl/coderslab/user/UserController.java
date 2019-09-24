@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/app")
+@RequestMapping("/")
 public class UserController {
     private UserService us;
 
@@ -22,10 +22,10 @@ public class UserController {
     @ResponseBody
     public String createUser() {
         User user = new User();
-        user.setEmail("admin");
+        user.setUsername("admin");
         user.setPassword("admin");
         us.addUser(user);
-        return "admin";
+        return user.toString();
     }
 
     @GetMapping("/admin")

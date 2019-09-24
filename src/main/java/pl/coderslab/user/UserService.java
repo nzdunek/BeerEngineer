@@ -4,13 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.coderslab.beer.Beer;
 import pl.coderslab.role.Role;
 import pl.coderslab.role.RoleRepository;
-
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
+
 
 @Service
 @Transactional
@@ -25,7 +23,6 @@ public class UserService {
         this.rr = rr;
         this.passwordEncoder = passwordEncoder;
     }
-
 
     public User findById (Long id) {
         return ur.findById(id).orElse(null);

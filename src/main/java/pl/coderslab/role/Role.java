@@ -9,7 +9,10 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name = "BEER_WARRIOR";
+    private String name = "ROLE_BEER_WARRIOR";
+
+    public Role() {
+    }
 
     public int getId() {
         return id;

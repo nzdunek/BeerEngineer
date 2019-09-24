@@ -34,6 +34,10 @@ public class BeerService {
         return br.findById(id).orElse(null);
     }
 
+    public List <Beer> findAll () {
+        return br.findAll();
+    }
+
     public List<Beer> findAllByBrand (String brand) {
         List <Beer> beers = br.findByBrand(brand);
         return beers;
@@ -46,6 +50,27 @@ public class BeerService {
 
     public List<Beer> findAllByOfficialType (String official) {
         List <Beer> beers = br.findByOfficial_type(official);
+        return beers;
+    }
+
+    public List<Beer> findOtherDark () {
+        List <Beer> beers = br.findOtherDark();
+        return beers;
+    }
+
+    public List<Beer> findOtherLightGrain () {
+        List <Beer> beers = br.findOtherLightGrain();
+        return beers;
+    }
+
+    public List<Beer> findOtherLightType () {
+        List <Beer> beers = br.findOtherLightType();
+        return beers;
+    }
+
+
+    public List<Beer> findAllByPartialType (String official) {
+        List <Beer> beers = br.findByPartialType(official);
         return beers;
     }
 }

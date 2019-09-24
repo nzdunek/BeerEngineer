@@ -94,6 +94,9 @@ public class Beer {
         this.intuitive_type = intuitive_type;
     }
 
+    public Beer() {
+    }
+
     @Override
     public String toString() {
         return "Beer{" +
