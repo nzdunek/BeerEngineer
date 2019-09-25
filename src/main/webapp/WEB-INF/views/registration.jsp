@@ -16,6 +16,9 @@
 
 <form:form method="post" modelAttribute="user">
 
+    <div class="container">
+        <div class="card">
+
     <div>
         <label>Login:
             <form:input path="username"/>
@@ -52,6 +55,9 @@
 
     <input type="submit" value="Stwórz konto">
 </form:form>
+
+        </div>
+    </div>
 <%@include file="fragments/footer.jspf"%>
 </body>
 </html>

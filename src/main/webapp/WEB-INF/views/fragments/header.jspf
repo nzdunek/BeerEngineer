@@ -19,23 +19,22 @@
 </nav>
 
 <nav id="mySidebar" class="sidebar" style="top:60px">
-    <div class="sidebar-header"><h3>Rodzaje piwa</h3></div>
     <ul class="list-unstyled components">
         <li>
             <ul class="list-unstyled components">
                 <h5>Ciemne</h5>
-                <li><a href="/bock">Bock</a></li>
-                <li><a href="/porter">Porter</a></li>
-                <li><a href="/stout">Stout</a></li>
-                <li><a href="/dark_other">Inne</a></li>
+                <li><a href="/beer/bock">Bock</a></li>
+                <li><a href="/beer/porter">Porter</a></li>
+                <li><a href="/beer/stout">Stout</a></li>
+                <li><a href="/beer/dark_other">Inne</a></li>
             </ul>
             <ul class="list-unstyled components">
                 <h5>Jasne</h5>
-                <li><a href="/ale">Ale</a></li>
-                <li><a href="/lager">Lager</a></li>
-                <li><a href="/pils">Pils</a></li>
-                <li><a href="light_grains">Inne zboża</a></li>
-                <li><a href="light_taste">Inne smaki</a></li>
+                <li><a href="/beer/ale">Ale</a></li>
+                <li><a href="/beer/lager">Lager</a></li>
+                <li><a href="/beer/pils">Pils</a></li>
+                <li><a href="/beer/light_grains">Inne zboża</a></li>
+                <li><a href="/beer/light_taste">Inne smaki</a></li>
             </ul>
         </li>
     </ul>

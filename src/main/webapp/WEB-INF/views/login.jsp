@@ -7,11 +7,11 @@
 </head>
 <body>
 
-<%@ include file="fragments/header.jspf"%>
 
 <div class="container">
-    <form class="form-signin" method="post" action="/login">
-        <h2 class="form-signin-heading">Please sign in</h2>
+    <div class="card">
+    <form method="post" action="/login">
+        <h4 class="form-signin-heading">Logowanie</h4>
         <p>
             <label for="username" class="sr-only">Login</label>
             <input type="text" id="username" name="username" class="form-control" placeholder="login">
@@ -26,7 +26,7 @@
         <c:if test="${not empty errorMessge}"><div style="color:red; font-weight: bold; margin: 30px 0px;">${errorMessge}</div></c:if>
     </form>
 </div>
+</div>
 
-<%@include file="fragments/footer.jspf"%>
 </body>
 </html>

@@ -15,7 +15,7 @@ import javax.validation.Valid;
 @Controller
 public class HomeController {
     @GetMapping("/")
-    public String getBooks() {
+    public String index() {
         return "home";
     }
 
