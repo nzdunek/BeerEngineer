@@ -9,23 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/app")
 public class UserController {
     private UserService us;
 
     @Autowired
     public UserController(UserService us) {
         this.us = us;
-    }
-
-    @GetMapping("/create-user")
-    @ResponseBody
-    public String createUser() {
-        User user = new User();
-        user.setUsername("admin");
-        user.setPassword("admin");
-        us.addUser(user);
-        return user.toString();
     }
 
     @GetMapping("/admin")
@@ -35,18 +25,5 @@ public class UserController {
         return "Hello " + entityUser.getUsername();
     }
 
-    @GetMapping("/register")
-    public String addUser(Model model) {
-        model.addAttribute("user", new User());
-        return "registration";
-    }
 
-    @PostMapping("/register")
-    public String addUser(@ModelAttribute @Valid User user, BindingResult result) {
-        if (result.hasErrors()) {
-            return "registration";
-        }
-        us.addUser(user);
-        return "login";
-    }
 }

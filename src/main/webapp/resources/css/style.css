@@ -20,6 +20,11 @@ body {
     color: #250a08;
 }
 
+.btn {
+    background-color: #FFBF00;
+    color: #250a08;
+}
+
 .sidebar {
     height: 100%;
     width: 0;
@@ -33,7 +38,7 @@ body {
     padding-top: 60px;
     }
 
-h5 {
+.sidebar-title {
     margin-left: 23px;
 }
 

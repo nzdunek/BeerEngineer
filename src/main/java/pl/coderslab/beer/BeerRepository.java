@@ -6,10 +6,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.lang.annotation.Native;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public interface BeerRepository extends JpaRepository <Beer, Long> {
+
+    @Query(value="select intuitive_type from beers", nativeQuery = true)
+    String [] allIntuitives();
 
     @Query("select b from Beer b where b.intuitive_type = ?1")
     List<Beer> findByIntuitive_type (String intuitive);

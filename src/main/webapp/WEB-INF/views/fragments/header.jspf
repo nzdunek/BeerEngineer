@@ -22,19 +22,19 @@
     <ul class="list-unstyled components">
         <li>
             <ul class="list-unstyled components">
-                <h5>Ciemne</h5>
-                <li><a href="/beer/bock">Bock</a></li>
-                <li><a href="/beer/porter">Porter</a></li>
-                <li><a href="/beer/stout">Stout</a></li>
-                <li><a href="/beer/dark_other">Inne</a></li>
+                <h5 class="sidebar-title">Ciemne</h5>
+                <li><a href="/beer/type/bock">Bock</a></li>
+                <li><a href="/beer/type/porter">Porter</a></li>
+                <li><a href="/beer/type/stout">Stout</a></li>
+                <li><a href="/beer/type/dark_other">Inne</a></li>
             </ul>
             <ul class="list-unstyled components">
                 <h5>Jasne</h5>
-                <li><a href="/beer/ale">Ale</a></li>
-                <li><a href="/beer/lager">Lager</a></li>
-                <li><a href="/beer/pils">Pils</a></li>
-                <li><a href="/beer/light_grains">Inne zboża</a></li>
-                <li><a href="/beer/light_taste">Inne smaki</a></li>
+                <li><a href="/beer/type/ale">Ale</a></li>
+                <li><a href="/beer/type/lager">Lager</a></li>
+                <li><a href="/beer/type/pils">Pils</a></li>
+                <li><a href="/beer/type/light_grains">Inne zboża</a></li>
+                <li><a href="/beer/type/light_taste">Inne smaki</a></li>
             </ul>
         </li>
     </ul>

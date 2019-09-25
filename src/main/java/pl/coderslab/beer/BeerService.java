@@ -73,4 +73,16 @@ public class BeerService {
         List <Beer> beers = br.findByPartialType(official);
         return beers;
     }
+
+    public List <String> intuitiveTypes () {
+        List<String> intuitives = new ArrayList<>();
+        String[] allIntuitives = br.allIntuitives();
+        for (int i = 0; i < allIntuitives.length; i++) {
+            if (!intuitives.contains(allIntuitives[i])) {
+                intuitives.add(allIntuitives[i]);
+            }
+        }
+
+        return intuitives;
+    }
 }

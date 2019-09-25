@@ -11,53 +11,58 @@
 </head>
 <body>
 
-<%@ include file="fragments/header.jspf"%>
+<%@ include file="fragments/header.jspf" %>
 
 
 <form:form method="post" modelAttribute="user">
+<div><br><br></div>
+<div class="container">
+    <div class="card">
+        <h4>Zarejestruj się</h4>
 
-    <div class="container">
-        <div class="card">
+        <div class="row">
+        <div class="col-md-4">
+            <label>Imię:
+                <form:input path="first_name"/>
+            </label>
+            <form:errors path="first_name" element="div"/>
+        </div>
 
-    <div>
-        <label>Login:
-            <form:input path="username"/>
-        </label>
-        <form:errors path="username" element="div"/>
-    </div>
-    <div>
-        <label>Imię:
-            <form:input path="first_name"/>
-        </label>
-        <form:errors path="first_name" element="div"/>
-    </div>
-
-    <div>
-        <label>Nazwisko:
-            <form:input path="last_name"/>
-        </label>
-        <form:errors path="last_name" element="div"/>
-    </div>
-
-    <div>
-        <label>e-mail:
-            <form:input path="email"/>
-        </label>
-        <form:errors path="email" element="div"/>
-    </div>
-
-    <div>
-        <label>Hasło:
-            <form:password path="password"/>
-        </label>
-        <form:errors path="password" element="div"/>
-    </div>
-
-    <input type="submit" value="Stwórz konto">
-</form:form>
-
+        <div class="col-md-4">
+            <label>Nazwisko:
+                <form:input path="last_name"/>
+            </label>
+            <form:errors path="last_name" element="div"/>
         </div>
     </div>
-<%@include file="fragments/footer.jspf"%>
+
+    <div class="row">
+        <div class="col-md-4">
+            <label>Login:
+                <form:input path="username"/>
+            </label>
+            <form:errors path="username" element="div"/>
+        </div>
+        <div class="col-md-4">
+            <label>e-mail:
+                <form:input path="email"/>
+            </label>
+            <form:errors path="email" element="div"/>
+        </div>
+    </div>
+
+        <div>
+            <label>Hasło:
+                <form:password path="password"/>
+            </label>
+            <form:errors path="password" element="div"/>
+        </div>
+
+        <input type="submit" value="Stwórz konto">
+        </form:form>
+
+    </div>
+</div>
+<%@include file="fragments/footer.jspf" %>
 </body>
 </html>

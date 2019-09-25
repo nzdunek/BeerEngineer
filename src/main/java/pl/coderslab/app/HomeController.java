@@ -1,5 +1,6 @@
 package pl.coderslab.app;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -7,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.user.User;
+import pl.coderslab.user.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,15 +17,18 @@ import javax.validation.Valid;
 
 @Controller
 public class HomeController {
+
+    UserService us;
+
+    @Autowired
+    public HomeController(UserService us) {
+        this.us = us;
+    }
+
     @GetMapping("/")
     public String index() {
         return "home";
     }
-
-//    @GetMapping(value = {"/login"})
-//    public String login() {
-//        return "login";
-//
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(@RequestParam(value = "error", required = false) String error,
@@ -47,6 +53,20 @@ public class HomeController {
         }
         return "redirect:/login?logout=true";
     }
+
+    @GetMapping("/register")
+    public String addUser(Model model) {
+        model.addAttribute("user", new User());
+        return "registration";
+    }
+
+    @PostMapping("/register")
+    public String addUser(@ModelAttribute @Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "registration";
+        }
+        us.addUser(user);
+        return "login";
+    }
+
 }
-
-

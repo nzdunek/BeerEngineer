@@ -16,122 +16,162 @@
 <div></div>
 <br><br>
 <div class="container">
-    <div class="card">
-        <form method="post" action="/beer/results">
+    <div class="card" style="width: 800px">
+        <h4>Na jakie piwko masz dziś ochotę?</h4>
+        <form method="get" action="/beer/results">
+            <div class="row rlvl-1">
+                <div class="col-md-6">
+                    <input type='checkbox' data-toggle='collapse' data-target='#jasne'> jasne </input>
 
-    <div class="row">
-            <div class="col-auto config-lvl-1">
-            <input type='checkbox' data-toggle='collapse' data-target='#jasne'> jasne </input>
-
-               <div id='jasne' class='collapse div1 config-lvl-2'>
-                    <div class="col-auto">
-                        <input type='checkbox' data-toggle='collapse' data-target='#j_klasyczne'> klasyczne </input>
-                            <div id='j_klasyczne' class='collapse div1 config-lvl-3'>
-                            <div class="row">
-                                <div class="col-auto">
-                                    <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='j_k_goryczkowe'> goryczkowe </input>
-                                </div>
-                                <div class="col-auto">
-                                    <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='j_k_lekkie'> lekkie </input>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-auto">
-                    <input type='checkbox' data-toggle='collapse' data-target='#j_gorzkie'> gorzkie </input>
-                            <div id='j_gorzkie' class='collapse div1 config-lvl-3'>
-                                <div class="col-auto">
-                                    <input type='checkbox' data-toggle='collapse' name="`pickedBeers`" value='j_g_slodowe'> słodowe </input>
-                                </div>
-                                <div class="col-auto">
-                                    <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='j_g_chmielowe'> chmielowe </input>
-                                </div>
-                            </div>
-                </div>
-                  <div class="col-auto">
-                        <input type='checkbox' data-toggle='collapse' data-target='#j_zboza'> inne zboża </input>
-                              <div id='j_zboza' class='collapse div1 config-lvl-3'>
-                                    <div class="col-auto">
-                                    <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='j_z_orzezwiajace'> orzeźwiające </input>
-                                </div>
-                                    <div class="col-auto">
-                                    <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='j_z_kremowe'> kremowe </input>
-                                </div>
-                                    <div class="col-auto">
-                                     <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='j_z_wymagajace'> wymagające </input>
-                                </div>
-                              </div>
-                  </div>
-
-               <div class="col-auto">
-                    <input type='checkbox' data-toggle='collapse' data-target='#j_smaki'> inne smaki </input>
-                            <div id='j_smaki' class='collapse div1 config-lvl-3'>
-                                   <div class="col-auto">
-                                       <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='j_s_kwasne'> kwaśne </input>
-                                     </div>
-                                   <div class="col-auto">
-                                        <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='j_s_slodkie'> słodkie </input>
+                    <div id='jasne' class='collapse div1 config-lvl-2'>
+                        <div class="row">
+                            <div class="col-auto">
+                                <input type='checkbox' data-toggle='collapse' data-target='#j_klasyczne'>
+                                klasyczne </input>
+                                <div id='j_klasyczne' class='collapse div1 config-lvl-3'>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='j_k_goryczkowe'> goryczkowe </input>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='j_k_lekkie'> lekkie </input>
+                                        </div>
                                     </div>
-                                   <div class="col-auto">
-                                       <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='j_s_trunki"> inne trunki </input>
-                                   </div>
+                                </div>
                             </div>
-               </div>
-            </div>
 
-<%--                                                    CIEMNE                                                    --%>
-
-            <input type='checkbox' data-toggle='collapse' data-target='#ciemne'> ciemne </input>
-
-            <div id='ciemne' class='collapse div1 config-lvl-2'>
-                <div class="col-auto">
-                    <input type='checkbox' data-toggle='collapse' data-target='#c_palone'> palone </input>
-                    <div id='c_palone' class='collapse div1 config-lvl-3'>
-                        <div class="col-auto">
-                            <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='c_p_slabe'> słabe </input>
-                        </div>
-                        <div class="col-auto">
-                            <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='c_p_mocne'> mocne </input>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-auto">
-                    <input type='checkbox' data-toggle='collapse' data-target='#c_slodkie'> słodkie </input>
-                    <div id='c_slodkie' class='collapse div1 config-lvl-3'>
-                        <div class="col-auto">
-                            <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='c_s_orzez'> orzeźwiające </input>
-                        </div>
-                        <div class="col-auto">
-                            <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='c_s_delikatne'> delikatne </input>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-auto">
-                    <input type='checkbox' data-toggle='collapse' data-target='#c_dodatki'> z dodatkami </input>
-                    <div id='c_dodatki' class='collapse div1 config-lvl-3'>
-                        <div class="col-auto">
-                            <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='c_d_kwasne'> kwaśne owocowe </input>
-                        </div>
-                        <div class="col-auto">
-                            <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='c_d_slodkie'> słodkie owocowe </input>
-                        </div>
-                        <div class="col-auto">
-                            <input type='checkbox' data-toggle='collapse' name="pickedBeers" value='c_d_dodatki'> słodkie dodatki </input>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            </div>
+                            <div class="col-auto">
+                                <input type='checkbox' data-toggle='collapse' data-target='#j_gorzkie'> gorzkie </input>
+                                <div id='j_gorzkie' class='collapse div1 config-lvl-3'>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="`pickedBeers`"
+                                                   value='j_g_slodowe'> słodowe </input>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='j_g_chmielowe'> chmielowe </input>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
+                            <div class="col-auto">
+                                <input type='checkbox' data-toggle='collapse' data-target='#j_zboza'> inne
+                                zboża </input>
+                                <div id='j_zboza' class='collapse div1 config-lvl-3'>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='j_z_orzezwiajace'> orzeźwiające </input>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='j_z_kremowe'> kremowe </input>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='j_z_wymagajace'> wymagające </input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-auto">
+                                <input type='checkbox' data-toggle='collapse' data-target='#j_smaki'> inne
+                                smaki </input>
+                                <div id='j_smaki' class='collapse div1 config-lvl-3'>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='j_s_kwasne'> kwaśne </input>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='j_s_slodkie'> słodkie </input>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='j_s_trunki'> inne trunki </input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <%--                                                    CIEMNE                                                    --%>
+                <div class="col-md-6">
+                    <input type='checkbox' data-toggle='collapse' data-target='#ciemne'> ciemne </input>
+
+                    <div id='ciemne' class='collapse div1 config-lvl-2'>
+                        <div class="row">
+                            <div class="col-auto">
+                                <input type='checkbox' data-toggle='collapse' data-target='#c_palone'> palone </input>
+                                <div id='c_palone' class='collapse div1 config-lvl-3'>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='c_p_slabe'> słabe </input>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='c_p_mocne'> mocne </input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-auto">
+                                <input type='checkbox' data-toggle='collapse' data-target='#c_slodkie'> słodkie </input>
+                                <div id='c_slodkie' class='collapse div1 config-lvl-3'>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='c_s_orzez'> orzeźwiające </input>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='c_s_delikatne'> delikatne </input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-auto">
+                                <input type='checkbox' data-toggle='collapse' data-target='#c_dodatki'> z
+                                dodatkami </input>
+                                <div id='c_dodatki' class='collapse div1 config-lvl-3'>
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='c_d_kwasne'> kwaśne owocowe </input>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='c_d_slodkie'> słodkie owocowe </input>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type='checkbox' data-toggle='collapse' name="pickedBeers"
+                                                   value='c_d_dodatki'> słodkie dodatki </input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <button class="btn btn-lg btn-primary btn-block" type="submit">Wybierz mi piwko!</button>
+
         </form>
 
-
-               </div>
     </div>
 </div>
 
