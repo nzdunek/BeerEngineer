@@ -5,6 +5,14 @@
 <head>
     <title>Twoja lista</title>
 
+    <script>
+        function recommend
+        (id, name) {
+            if (confirm("Czy chcesz dodać piwo " + name + " do swich rekomendacji?")) {
+                window.location.href = "/app/dash/" + id;
+            }
+        }
+    </script>
     <script src="<c:url value="/webjars/jquery/3.0.0/jquery.min.js"/>"></script>
     <script src="<c:url value="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"/>"></script>
     <link href="<c:url value="/webjars/bootstrap/4.3.1/css/bootstrap.min.css"/>" rel="stylesheet">
@@ -38,7 +46,7 @@
                               <p class="card-text"><small class="text-muted">Zostań <a href="/register">Beer-Warriorem</a>, by dodać rekomendację </small></p>
                               </sec:authorize>
                               <sec:authorize access="isAuthenticated()">
-                                  <a href="/app/dash/${beer.id}" class="header-btn btn-group btn-group-lg">
+                                  <a href="#" class="header-btn btn-group btn-group-lg" onclick="recommend(${beer.id}, '${beer.name}')">
                                       <button type="button" class="btn btn-warning header-btn">Rekomenduję!</button>
                                   </a>
                               </sec:authorize>

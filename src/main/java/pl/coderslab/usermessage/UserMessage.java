@@ -52,7 +52,8 @@ public class UserMessage {
 
     @Override
     public String toString() {
-        return "New UserMassage from " + email + "\n" +
-                "Message content: " + message;
+        return "Dostałeś nową wiadomość ze strony BeerEngineer! \n" +
+                "Nadawca: " + email + "\n" +
+                "Treść wiadomości: " + message;
     }
 }

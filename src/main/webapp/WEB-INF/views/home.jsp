@@ -26,7 +26,7 @@
         <div><br><br></div>
         <h4 align="center">Na jakie piwko masz dziś ochotę?</h4>
         <h5 align="center">Wybierz po co najmniej jednej kategorii z każdego z trzech poziomów, a my dobierzemy Ci piwo
-            szyte na miarę!</h5>
+            lane na miarę!</h5>
         <form method="get" action="/beer/results">
             <div><br><br></div>
             <div class="row text-center">
