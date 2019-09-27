@@ -4,6 +4,18 @@ body {
     color: #250a08;
 }
 
+.config-lvl-1 {
+    font-size: 20px;
+}
+
+.config-lvl-2 {
+    font-size: 20px;
+}
+
+.config-lvl-3 {
+    font-size: 18px;
+}
+
 .header-bar {
     background-color: #FFBF00;
 }
@@ -23,6 +35,7 @@ body {
 .btn {
     background-color: #FFBF00;
     color: #250a08;
+    border-color: #FFBF00;
 }
 
 .sidebar {
@@ -59,6 +72,19 @@ body {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary:active:focus {
+    color: #FFBF00;
+    background-color: #250a08;
+    border-color: #250a08; /*set the color you want here*/
+}
+
+.card-img {
+    max-height: 300px ;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .openbtn {

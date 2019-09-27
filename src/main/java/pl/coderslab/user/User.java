@@ -1,12 +1,14 @@
 package pl.coderslab.user;
 
 
+import pl.coderslab.beer.Beer;
 import pl.coderslab.role.Role;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -41,6 +43,10 @@ public class User {
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Role> roles;
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "beers_users", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "beer_id"))
+    private Set<Beer> favourites;
 
     public Long getId() {
         return id;
@@ -105,6 +111,10 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+    public Set<Beer> getFavourites() { return favourites; }
+
+    public void setFavourites(Set<Beer> favourites) { this.favourites = favourites; }
 
     public User() {
     }

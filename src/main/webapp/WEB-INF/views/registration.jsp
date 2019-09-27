@@ -18,47 +18,45 @@
 <div><br><br></div>
 <div class="container">
     <div class="card">
-        <h4>Zarejestruj się</h4>
+        <div><br></div>
+        <h4 align="center">Zarejestruj się</h4>
+        <div><br></div>
 
-        <div class="row">
-        <div class="col-md-4">
-            <label>Imię:
-                <form:input path="first_name"/>
-            </label>
-            <form:errors path="first_name" element="div"/>
-        </div>
 
-        <div class="col-md-4">
-            <label>Nazwisko:
-                <form:input path="last_name"/>
-            </label>
-            <form:errors path="last_name" element="div"/>
-        </div>
-    </div>
+        <div class="row justify-content-around">
+            <div class="col-md-4">
+                <form:input path="first_name" placeholder="imię"/>
+                <form:errors path="first_name" element="div" style="color: #ff511d; font-size:15px"/>
+            </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <label>Login:
-                <form:input path="username"/>
-            </label>
-            <form:errors path="username" element="div"/>
+            <div class="col-md-4">
+                <form:input path="last_name" placeholder="nazwisko"/>
+                <form:errors path="last_name" element="div" style="color: #ff511d; font-size:15px"/>
+            </div>
         </div>
-        <div class="col-md-4">
-            <label>e-mail:
-                <form:input path="email"/>
-            </label>
-            <form:errors path="email" element="div"/>
-        </div>
-    </div>
+        <div><br></div>
 
-        <div>
-            <label>Hasło:
-                <form:password path="password"/>
-            </label>
-            <form:errors path="password" element="div"/>
+        <div class="row justify-content-around">
+            <div class="col-md-4">
+                <form:input path="username" placeholder="login"/>
+                <form:errors path="username" element="div" style="color: #ff511d; font-size:15px"/>
+            </div>
+            <div class="col-md-4">
+                <form:input path="email" placeholder="e-mail"/>
+                <form:errors path="email" element="div" style="color: #ff511d; font-size:15px"/>
+            </div>
         </div>
+        <div><br></div>
 
-        <input type="submit" value="Stwórz konto">
+        <div class="row justify-content-around">
+            <div>
+                <form:password path="password" placeholder="hasło"/>
+                <form:errors path="password" element="div" style="color: #ff511d; font-size:15px"/>
+            </div>
+        </div>
+        <div><br></div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Zostań Beer-Warriorem!</button>
         </form:form>
 
     </div>

@@ -53,19 +53,8 @@ public class BeerService {
         return beers;
     }
 
-    public List<Beer> findOtherDark () {
-        List <Beer> beers = br.findOtherDark();
-        return beers;
-    }
-
-    public List<Beer> findOtherLightGrain () {
-        List <Beer> beers = br.findOtherLightGrain();
-        return beers;
-    }
-
-    public List<Beer> findOtherLightType () {
-        List <Beer> beers = br.findOtherLightType();
-        return beers;
+    public List<Beer> findByBiggerType (String type) {
+        return br.findByBigger_type(type);
     }
 
 
@@ -74,15 +63,8 @@ public class BeerService {
         return beers;
     }
 
-    public List <String> intuitiveTypes () {
-        List<String> intuitives = new ArrayList<>();
-        String[] allIntuitives = br.allIntuitives();
-        for (int i = 0; i < allIntuitives.length; i++) {
-            if (!intuitives.contains(allIntuitives[i])) {
-                intuitives.add(allIntuitives[i]);
-            }
-        }
-
-        return intuitives;
+    public int countRecommendations (Long beer_id) {
+        return br.countRecommentingUsers(beer_id);
     }
+
 }

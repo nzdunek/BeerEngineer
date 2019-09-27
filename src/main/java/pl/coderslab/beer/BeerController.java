@@ -7,6 +7,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.user.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,10 +22,12 @@ import java.util.Map;
 public class BeerController {
 
     private BeerService bs;
+    private UserService us;
 
     @Autowired
-    public BeerController(BeerService bs) {
+    public BeerController(BeerService bs, UserService us) {
         this.bs = bs;
+        this.us = us;
     }
 
     @GetMapping("/allbeers")
@@ -34,58 +37,31 @@ public class BeerController {
         return "beerlist";
     }
 
-    @GetMapping("/type/{official}")
-    public  String findAll (@PathVariable String official, Model model){
-        if (official.contains("lager")) {
-            official = "wied";
-        }
+    @GetMapping("/type/{type}")
+    public  String findAll (@PathVariable String type, Model model){
 
-        List <Beer> beers = new ArrayList<>();
-        if (official.contains("dark_other")) {
-            beers = bs.findOtherDark();
-        } else if (official.contains("light_grains")) {
-           beers = bs.findOtherLightGrain();
-        } else if (official.contains("light_taste")) {
-            beers = bs.findOtherLightType();
-        } else {
-            beers = bs.findAllByPartialType(official);
-        }
+        List <Beer> beers = bs.findByBiggerType(type);
+
         model.addAttribute("beers", beers);
         return "beerlist";
     }
 
     @GetMapping("/results")
-    public String retrieveResult(@RequestParam String[] pickedBeers, Model model){
+    public String retrieveResult(@RequestParam(value = "pickedBeers", required = false) String[] pickedBeers, Model model){
 
         List<Beer> beers = new ArrayList<>();
-//        List <String> intuitives = bs.intuitiveTypes();
 
-        for (String picked : pickedBeers) {
+        if (pickedBeers == null) {
+            beers.add(bs.findBeer(82l));
+        } else {
+            for (String picked : pickedBeers) {
                 beers.addAll(bs.findAllByIntuitiveType(picked));
+            }
         }
 
-        if (beers.size()==0) {
-            beers.add(bs.findBeer(82l));}
-
-        model.addAttribute("beers", pickedBeers);
+        model.addAttribute("beers", beers);
 
         return "beerlist";
     }
-
-//    @GetMapping("/result")
-//    @kResponseBody
-//    public String findYourResult (Model model, HttpServletRequest request) {
-//        Map<String, String[]> picked = request.getParameterMap();
-//
-//
-//        List<Beer> beers = new ArrayList<>();
-//
-//        if (beers.size()==0) {
-//            beers.add(bs.findBeer(82l));
-//        }
-//
-//        model.addAttribute("beers", beers);
-//        return picked.toString();
-//    }
 
 }

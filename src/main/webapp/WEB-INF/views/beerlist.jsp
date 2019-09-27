@@ -15,6 +15,9 @@
 <%@ include file="fragments/header.jspf"%>
 
 <div class="container">
+        <div><br>
+        <h4 align="center">Piwka dla Ciebie</h4>
+        <br></div>
   <div class="row">
       <div class="col-md-12">
 
@@ -23,13 +26,22 @@
                   <div class="row no-gutters">
 
                       <div class="col-md-4">
-                          <img src="/resources/images/beer${beer.type}.jpg" class="card-img" alt="...">
+                          <img src="/resources/images/beer${beer.id}.jpg" class="card-img" alt="...">
                       </div>
                       <div class="col-md-8">
                           <div class="card-body">
                               <h5 class="card-title">${beer.name}, ${beer.brand}</h5>
                               <p class="card-text">${beer.description}</p>
                               <p class="card-text"><small class="text-muted">${beer.official_type}</small></p>
+                              <p class="card-text"><small class="text-muted">To piwo jest polecane przez ${beer.recommending.size()} Beer-Warriorów</small></p>
+                              <sec:authorize access="isAnonymous()">
+                              <p class="card-text"><small class="text-muted">Zostań <a href="/register">Beer-Warriorem</a>, by dodać rekomendację </small></p>
+                              </sec:authorize>
+                              <sec:authorize access="isAuthenticated()">
+                                  <a href="/app/dash/${beer.id}" class="header-btn btn-group btn-group-lg">
+                                      <button type="button" class="btn btn-warning header-btn">Rekomenduję!</button>
+                                  </a>
+                              </sec:authorize>
                           </div>
                       </div>
                   </div>

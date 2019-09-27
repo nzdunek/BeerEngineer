@@ -1,19 +1,40 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <nav class="navbar navbar-light header-bar sticky-top">
 
     <a href="/"><img src="/resources/images/logo.png" class="rounded float-left" alt="logo" height="100px"></a>
+
     <div class="btn-group btn-group-lg" role="group" aria-label="menu_buttons">
+        <sec:authorize access="isAuthenticated()">
+            <a href="/app/dash" class="header-btn btn-group btn-group-lg">
+            <button type="button" class="btn btn-warning header-btn">
+                Cześć, <sec:authentication property="principal.user.first_name"></sec:authentication>!
+            </button>
+            </a>
+        </sec:authorize>
+
         <button type="button" class="btn btn-warning header-btn openbtn" onclick="openNav()">☰ Katalog</button>
+
+        <a href="/contact" class="header-btn btn-group btn-group-lg">
+            <button type="button" class="btn btn-warning header-btn">Kontakt</button>
+        </a>
+
+        <sec:authorize access="isAuthenticated()">
+        <a href="/logout" class="header-btn btn-group btn-group-lg">
+            <button type="button" class="btn btn-warning header-btn">Wyloguj</button>
+        </a>
+        </sec:authorize>
+
+        <sec:authorize access="isAnonymous()">
         <a href="/login" class="header-btn btn-group btn-group-lg">
             <button type="button" class="btn btn-warning header-btn">Logowanie</button>
         </a>
         <a href="/register" class="header-btn btn-group btn-group-lg">
             <button type="button" class="btn btn-warning header-btn">Rejestracja</button>
         </a>
-        <a href="/" class="header-btn btn-group btn-group-lg">
-            <button type="button" class="btn btn-warning header-btn">O nas</button>
-        </a>
+        </sec:authorize>
+
     </div>
 
 </nav>
@@ -26,15 +47,18 @@
                 <li><a href="/beer/type/bock">Bock</a></li>
                 <li><a href="/beer/type/porter">Porter</a></li>
                 <li><a href="/beer/type/stout">Stout</a></li>
+                <li><a href="/beer/type/dark_taste">Smakowe</a></li>
                 <li><a href="/beer/type/dark_other">Inne</a></li>
             </ul>
+
             <ul class="list-unstyled components">
-                <h5>Jasne</h5>
+                <li><br></li>
+                <h5 class="sidebar-title">Jasne</h5>
                 <li><a href="/beer/type/ale">Ale</a></li>
                 <li><a href="/beer/type/lager">Lager</a></li>
                 <li><a href="/beer/type/pils">Pils</a></li>
                 <li><a href="/beer/type/light_grains">Inne zboża</a></li>
-                <li><a href="/beer/type/light_taste">Inne smaki</a></li>
+                <li><a href="/beer/type/light_taste">Smakowe</a></li>
             </ul>
         </li>
     </ul>

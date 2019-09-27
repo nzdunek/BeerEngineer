@@ -1,9 +1,12 @@
 package pl.coderslab.beer;
 
+import pl.coderslab.user.User;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "beers")
@@ -12,10 +15,6 @@ public class Beer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private byte type;
-    // 0 - ciemne
-    // 1 - jasne
 
     @NotBlank
     private String name;
@@ -29,19 +28,19 @@ public class Beer {
     @NotBlank
     private String official_type;
 
+    private String bigger_type;
+
     @NotBlank
     private String intuitive_type;
 
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "beers_users", joinColumns = @JoinColumn(name = "beer_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
+    public Set<User> recommending;
+
+    private int countRecommendations;
+
     public Long getId() {
         return id;
-    }
-
-    public byte getType() {
-        return type;
-    }
-
-    public void setType(byte type) {
-        this.type = type;
     }
 
     public String getName() {
@@ -84,10 +83,29 @@ public class Beer {
         this.intuitive_type = intuitive_type;
     }
 
+    public Set<User> getRecommending() { return recommending; }
+
+    public void setRecommending(Set<User> recommending) { this.recommending = recommending; }
+
+    public int getCountRecommendations() {
+        return countRecommendations;
+    }
+
+    public void setCountRecommendations(int countRecommendations) {
+        this.countRecommendations = countRecommendations;
+    }
+
+    public String getBigger_type() {
+        return bigger_type;
+    }
+
+    public void setBigger_type(String bigger_type) {
+        this.bigger_type = bigger_type;
+    }
+
     public Beer(byte type, @NotBlank String name, @NotBlank String brewery,
                 @Size(min = 20, max = 500) String description, @NotBlank String official_type,
                 @NotBlank String intuitive_type) {
-        this.type = type;
         this.name = name;
         this.brand = brand;
         this.description = description;
@@ -102,7 +120,6 @@ public class Beer {
     public String toString() {
         return "Beer{" +
                 "id=" + id +
-                ", type=" + type +
                 ", name='" + name + '\'' +
                 ", brewery='" + brand + '\'' +
                 ", description='" + description + '\'' +
@@ -110,4 +127,5 @@ public class Beer {
                 ", intuitive_type='" + intuitive_type + '\'' +
                 '}';
     }
+
 }
